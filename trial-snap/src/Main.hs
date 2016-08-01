@@ -12,13 +12,11 @@ main = quickHttpServe site
 site :: Snap ()
 site =
     ifTop (writeBS "Hello Kai") <|>
-    route [ ("foo", writeBS "bar")
+    route [ ("static", serveDirectory ".")
           , ("echo/:echoparam", echoHandler)
-          ] <|>
-    dir "static" (serveDirectory ".")
+          ]
 
 echoHandler :: Snap ()
 echoHandler = do
     param <- getParam "echoparam"
-    maybe (writeBS "must specify echo/param in URL")
-          writeBS param
+    maybe (writeBS "must specify echo/param in URL") writeBS param
