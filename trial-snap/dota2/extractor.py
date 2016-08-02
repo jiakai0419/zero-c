@@ -1,7 +1,8 @@
 #-*- coding: UTF-8 -*-
 import re
+import json
 
-IS_DEBUG = True
+IS_DEBUG = False
 ENGLISH_DATA = "heroes_english.htm"
 SCHINESE_DATA = "heroes_schinese.htm"
 
@@ -57,6 +58,15 @@ def generate_full_table(hover_table):
         full_table[key] = hover_table[key].replace("hphover", "full")
     return full_table
 
+def generate_hero_json(ename_table, sname_table, link_table, full_table):
+    for sign in ename_table:
+        hero = {}
+        hero['ename'] = ename_table[sign]
+        hero['sname'] = sname_table[sign]
+        hero['link'] = link_table[sign]
+        hero['full'] = full_table[sign]
+        print json.dumps(hero)
+
 if __name__ == "__main__":
     ename_table = extract_name_table(ENGLISH_DATA)
     display_table(ename_table)
@@ -72,3 +82,5 @@ if __name__ == "__main__":
 
     full_table = generate_full_table(hover_table)
     display_table(full_table)
+
+    generate_hero_json(ename_table, sname_table, link_table, full_table)
