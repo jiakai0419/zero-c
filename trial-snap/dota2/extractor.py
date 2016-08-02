@@ -3,8 +3,8 @@ import re
 import json
 
 IS_DEBUG = False
-ENGLISH_DATA = "heroes_english.htm"
-SCHINESE_DATA = "heroes_schinese.htm"
+ENGLISH_DATA = "heroes_english.data"
+SCHINESE_DATA = "heroes_schinese.data"
 
 def display_table(table):
     if not IS_DEBUG:
