@@ -9,6 +9,7 @@ import           Dota2
 import           System.IO (openFile, hClose, IOMode(..))
 import           Control.Monad.Trans (liftIO)
 import qualified Data.ByteString.Char8 as C
+import           System.Random (random, newStdGen)
 
 main :: IO ()
 main = quickHttpServe site
@@ -31,4 +32,5 @@ heroHandler = do
   handle <- liftIO $ openFile "dota2/heroes.data" ReadMode
   heroes <- liftIO $ loadHeroes handle
   liftIO $ hClose handle
-  writeBS . C.pack . show $ heroes
+  seed <- liftIO $ (fst . random) <$> newStdGen
+  writeBS . C.pack . genPage . pickOne seed $ heroes

@@ -25,3 +25,9 @@ loadHeroes handle = do
   contents <- LBS.hGetContents handle
   deepseq contents $ return ()
   return . map (fromJust . decode) . LC.lines $ contents
+
+pickOne :: Int -> [Hero] -> Hero
+pickOne seed heroes = heroes !! (seed `mod` length heroes)
+
+genPage :: Hero -> String
+genPage = show -- TODO
