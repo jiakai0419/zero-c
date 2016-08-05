@@ -29,5 +29,5 @@ loadHeroes handle = do
 pickOne :: Int -> [Hero] -> Hero
 pickOne seed heroes = heroes !! (seed `mod` length heroes)
 
-genPage :: Hero -> String
-genPage = show -- TODO
+jsonFormat :: Hero -> String
+jsonFormat = LC.unpack . encode

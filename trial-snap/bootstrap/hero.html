@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
     <link rel="icon" href="favicon.ico">
 
     <title>Sticky Footer Template for Bootstrap</title>
@@ -36,11 +37,22 @@
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>Sticky footer</h1>
+        <h1 id="ename"></h1>
+        <h4 id="sname"></h4>
       </div>
-      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
-      <p>Use <a href="../sticky-footer-navbar">the sticky footer with a fixed navbar</a> if need be, too.</p>
+      <a id="link" href="" target="_blank">
+        <img id="full" src="" alt="英雄图片" />
+      </a>
+      <br/>
+      <br/>
+      <br/>
+      <div>
+        <button id="pickone-btn" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onClick="pickone()">
+          Pick One
+        </button>
+      </div>
     </div>
+
 
     <footer class="footer">
       <div class="container">
@@ -51,5 +63,31 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      $(document).ready(function(){
+        pickone()
+        full_loaded_action()
+      });
+      function pickone() {
+        $("#pickone-btn").prop("disabled", true)
+        $.ajax({
+          url: "http://localhost:8000/hero",
+          data: {},
+          dataType: 'json',
+          success: function(result) {
+            $("#ename").html(result.ename)
+            $("#sname").html(result.sname)
+            $("#full").attr("src", result.full)
+            $("#link").attr("href", result.link)
+          },
+          type: "GET"
+        });
+      }
+      function full_loaded_action() {
+        $("#full").on("load", function(){
+          $("#pickone-btn").prop("disabled", false)
+        })
+      }
+    </script>
   </body>
 </html>

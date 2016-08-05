@@ -33,4 +33,4 @@ heroHandler = do
   heroes <- liftIO $ loadHeroes handle
   liftIO $ hClose handle
   seed <- liftIO $ (fst . random) <$> newStdGen
-  writeBS . C.pack . genPage . pickOne seed $ heroes
+  writeBS . C.pack . jsonFormat . pickOne seed $ heroes
