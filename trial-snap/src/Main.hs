@@ -16,7 +16,7 @@ main = quickHttpServe site
 
 site :: Snap ()
 site =
-    ifTop (serveFile "bootstrap/index.html") <|>
+    ifTop (redirect "/b/index.html") <|>
     route [ ("b", serveDirectory "bootstrap")
           -- , ("echo/:echoparam", echoHandler)
           , ("hero", heroHandler)
