@@ -16,7 +16,7 @@ main = quickHttpServe site
 
 site :: Snap ()
 site =
-    ifTop (writeBS "Hello Kai") <|>
+    ifTop (serveFile "bootstrap/index.html") <|>
     route [ ("b", serveDirectory "bootstrap")
           -- , ("echo/:echoparam", echoHandler)
           , ("hero", heroHandler)
