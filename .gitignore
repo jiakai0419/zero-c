@@ -4,3 +4,4 @@ temp.data
 trial-snap/log
 trial-snap/dist
 .DS_Store
+*.svg
