@@ -17,6 +17,10 @@ library
   hs-source-dirs:      src
   exposed-modules:     Lib
   build-depends:       base >= 4.7 && < 5
+                     , diagrams-lib
+                     , diagrams-svg
+                     , random
+                     , palette
   default-language:    Haskell2010
 
 executable monet-exe
@@ -26,7 +30,6 @@ executable monet-exe
   build-depends:       base
                      , monet
                      , diagrams-svg
-                     , diagrams-lib
   default-language:    Haskell2010
 
 test-suite monet-test
