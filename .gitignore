@@ -5,3 +5,4 @@ trial-snap/log
 trial-snap/dist
 .DS_Store
 *.svg
+*.ig
