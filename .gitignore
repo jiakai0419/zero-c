@@ -1,8 +1,8 @@
 .stack-work
 page_pool.data
 temp.data
-trial-snap/log
-trial-snap/dist
+trial-snap-s/log
+trial-snap-s/dist
 .DS_Store
 *.svg
 *.ig

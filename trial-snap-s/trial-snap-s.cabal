@@ -1,4 +1,4 @@
-Name:                trial-snap
+Name:                trial-snap-s
 Version:             0.1
 Synopsis:            Project Synopsis Here
 Description:         Project Description Here
@@ -10,7 +10,7 @@ Category:            Web
 Build-type:          Simple
 Cabal-version:       >=1.2
 
-Executable trial-snap
+Executable trial-snap-s
   hs-source-dirs: src
   main-is: Main.hs
 
