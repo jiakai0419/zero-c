@@ -9,3 +9,6 @@ trial-snap-s/dist
 
 # monet
 monet/*.svg
+
+# tutorial-snap
+tutorial-snap/log
