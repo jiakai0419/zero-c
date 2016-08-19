@@ -71,7 +71,7 @@
       function pickone() {
         $("#pickone-btn").prop("disabled", true)
         $.ajax({
-          url: "http://localhost:8000/hero",
+          url: "/hero",
           data: {},
           dataType: 'json',
           success: function(result) {
