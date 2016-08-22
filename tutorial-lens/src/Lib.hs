@@ -1,4 +1,7 @@
 {-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DeriveFoldable #-}
+{-# LANGUAGE DeriveTraversable #-}
 module Lib where
 
 import Lens.Micro hiding (element)
@@ -14,6 +17,10 @@ data Atom = Atom { _element :: String
                  } deriving (Show)
 
 data Molecule = Molecule { _atoms :: [Atom] } deriving (Show)
+
+data Pair a = Pair { ft :: a
+                   , sd :: a
+                   } deriving (Show, Functor, Foldable, Traversable)
 
 makeLenses ''Point
 
