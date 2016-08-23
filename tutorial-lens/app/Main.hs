@@ -15,14 +15,5 @@ molecule = Molecule { _atoms = [atom1, atom2] }
 
 main :: IO ()
 main = do
-  print . view x $ p1
-  print . over x (+1) $ p1
-
-  print . view element $ atom1
-  print . over element (++"ZZ") $ atom1
-
-  print . view atoms $ molecule
-  print . over atoms (++[atom2]) $ molecule
-
-  print . view (atoms . traverse . element) $ molecule
-  print . over (atoms . traverse . point . x) (*2) $ molecule
+  print . toListOf (atoms . traverse . point. y) $ molecule
+  print . over (atoms . traverse . point. y) (*2) $ molecule
