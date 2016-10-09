@@ -2,7 +2,11 @@
 #include "e1.h"
 
 void allocate(char *p, int m, int n) {
-  allocate0(p, m, n, 0, new char[n], new bool[m]);
+  char *ans = new char[n];
+  bool *used = new bool[m];
+  allocate0(p, m, n, 0, ans, used);
+  delete [] used;
+  delete [] ans;
 }
 
 void allocate0(char *p, int m, int n, int level, char *ans, bool *used) {
