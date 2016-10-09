@@ -12,3 +12,6 @@ monet/*.svg
 
 # tutorial-snap
 tutorial-snap/log
+
+# c++ main
+main
