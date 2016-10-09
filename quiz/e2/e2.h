@@ -1,6 +1,6 @@
 struct Node {
   char _value;
-  Node *next;
+  Node *_next;
 };
 
 Node * create(char *stuff, int n);

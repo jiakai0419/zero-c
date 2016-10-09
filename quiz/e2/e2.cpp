@@ -1,9 +1,5 @@
 #include <cstdio>
-
-struct Node {
-  char _value;
-  Node *_next;
-};
+#include "e2.h"
 
 Node * create(char *stuff, int n) {
   if (n == 0) {
